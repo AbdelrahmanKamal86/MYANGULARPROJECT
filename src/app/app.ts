@@ -10,4 +10,8 @@ import { Aboutus } from "./aboutus/aboutus";
 })
 export class App {
   protected readonly title = signal('firstapp');
+    isTrue=false;
+    onClick(){
+      alert('اهلا وسهلا');
+    }
 }
