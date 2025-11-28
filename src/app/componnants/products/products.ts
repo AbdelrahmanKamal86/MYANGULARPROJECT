@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Iproduct } from '../../models/iproduct';
 import { CommonModule} from "@angular/common";
-import { Icategory } from '../../models/icategory';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -11,14 +10,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './products.css',
 })
 export class Products {
-  productes:Iproduct[];
-  categories:Icategory[];
-  selectIdIs:number=0;
   totalOrderPrice:number =0;
+  productes:Iproduct[];
+
   constructor(){
     this.productes=[
       {id:100,name:'dell',price:52444,quantity:3,imageUrl:'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/portfolio/laptop-promo-above-dell.png?fmt=png-alpha&wid=800&hei=640',catId:1},
-      {id:101,name:'hp',price:50444,quantity:5,imageUrl:'https://m.media-amazon.com/images/I/71TN45+oJ0L._AC_SX425_.jpg',catId:1},
+      {id:101,name:'hp',price:50444,quantity:2,imageUrl:'https://m.media-amazon.com/images/I/71TN45+oJ0L._AC_SX425_.jpg',catId:1},
       {id:102,name:'iphone',price:52444,quantity:0,imageUrl:'https://www.raneen.com/media/catalog/product/m/a/ma225_2.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000',catId:2},
       {id:103,name:'samsung',price:52444,quantity:3,imageUrl:'https://m.media-amazon.com/images/I/61NUR7kNpZL._AC_SX425_.jpg',catId:2},
       {id:104,name:'haire',price:5444,quantity:3,imageUrl:'https://m.media-amazon.com/images/I/718WA8+FlFL._AC_SY355_.jpg',catId:3},
@@ -30,17 +28,9 @@ export class Products {
       {id:110,name:'iphone',price:52444,quantity:1,imageUrl:'https://www.raneen.com/media/catalog/product/m/a/ma225_2.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000',catId:2},
       {id:111,name:'samsung',price:52444,quantity:3,imageUrl:'https://m.media-amazon.com/images/I/61NUR7kNpZL._AC_SX425_.jpg',catId:2},
     ]
-    this.categories=[
-      {id:1,name:"labtop"},
-      {id:2,name:"mobil"},
-      {id:3,name:"apple"},
-      {id:4,name:"samsung"},
-    ]
   }
   buy(count:string,price:number){
     this.totalOrderPrice += +count*price;
   }
-  trackItem(index:number,item:Iproduct){
-    return item.id;
-  }
+
 }
